@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 
 class ProductItem extends Component {
 	render() {
+		let { productItem, index } = this.props;
 		return (
 			<tr>
-				<td>1</td>
-				<td>IDNCK</td>
-				<td>iPhone 6</td>
-				<td>500</td>
+				<td>{ index }</td>
+				<td>{ productItem.id }</td>
+				<td>{ productItem.name }</td>
+				<td>{ productItem.price }</td>
 				<td>
-					<span className="label label-warning">Available</span>
+					<span className="label label-warning">{ productItem.isAvailable ? 'Available' : 'Not Available' }</span>
 				</td>
 				<td>
 					<button type="button" className="btn btn-success btn-update-product">

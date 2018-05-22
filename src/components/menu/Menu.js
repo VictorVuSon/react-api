@@ -39,7 +39,7 @@ class Menu extends Component {
 			<div className="navbar navbar-default">
 				<a className="navbar-brand">CALL API</a>
 				<ul className="nav navbar-nav">
-					{this.showMenus(menus)}
+					{ this.showMenus(menus) }
 				</ul>
 			</div>
 		);
