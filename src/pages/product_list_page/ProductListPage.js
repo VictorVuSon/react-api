@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductList from './../../components/product_list/ProductList';
 import ProductItem from './../../components/product_item/ProductItem';
 import { connect } from 'react-redux';
-import {actFetchProductsRequest} from "../../actions/index";
+import {actDeleteProductRequest, actFetchProductsRequest} from "../../actions/index";
 
 class ProductListPage extends Component {
 	render() {
@@ -26,6 +26,10 @@ class ProductListPage extends Component {
 		this.props.fetchAllProducts();
 	}
 
+	onDelete = (id) => {
+		this.props.onDeleteProduct(id);
+	};
+
 	showProducts(products) {
 		let result = null;
 		if (products.length > 0) {
@@ -35,6 +39,7 @@ class ProductListPage extends Component {
 						key={ index }
 						index={ index }
 						productItem={ item }
+						onDelete={this.onDelete}
 					/>
 				)
 			})
@@ -53,6 +58,9 @@ const mapDispatchToProps = (dispatch, props) => {
 	return {
 		fetchAllProducts : () => {
 			dispatch(actFetchProductsRequest());
+		},
+		onDeleteProduct: (id) => {
+			dispatch(actDeleteProductRequest(id))
 		}
 	}
 };

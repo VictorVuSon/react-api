@@ -16,11 +16,17 @@ class ProductItem extends Component {
 					<button type="button" className="btn btn-success btn-update-product">
 						Update
 					</button>
-					<button type="button" className="btn btn-danger">Delete</button>
+					<button type="button" className="btn btn-danger" onClick={ () => this.deleteProduct(productItem.id) }>Delete</button>
 				</td>
 			</tr>
 		);
 	}
+
+	deleteProduct = (id) => {
+		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+			this.props.onDelete(id);
+		}
+	};
 }
 
 export default ProductItem;
