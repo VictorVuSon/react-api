@@ -7,15 +7,25 @@ class AddProductPage extends Component {
 				<h2>Add new product</h2>
 				<form action="">
 					<div className="form-group">
-						<label for="email">Email address:</label>
-						<input type="email" className="form-control" id="email" />
+						<label>Name:</label>
+						<input type="text" className="form-control" />
 					</div>
 					<div className="form-group">
-						<label for="pwd">Password:</label>
-						<input type="password" className="form-control" id="pwd" />
+						<label>Price:</label>
+						<input type="text" className="form-control" />
+					</div>
+					<div className="form-group">
+						<label>Available: </label>
 					</div>
 					<div className="checkbox">
-						<label><input type="checkbox" /> Remember me</label>
+						<label>
+							<input
+								type="checkbox"
+								name="chkbStatus"
+
+							/>
+							is available
+						</label>
 					</div>
 					<button type="submit" className="btn btn-default">Submit</button>
 				</form>
