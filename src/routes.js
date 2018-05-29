@@ -2,8 +2,8 @@ import React from 'react';
 import HomePage from "./pages/home_page/HomePage";
 import NotFound from "./pages/not_found_page/NotFound";
 import ProductListPage from "./pages/product_list_page/ProductListPage";
-import AddProductPage from "./pages/product_action_page/AddProductPage";
-import UpdateProductPage from "./pages/product_action_page/UpdateProductPage";
+import ActionProductPage from "./pages/product_action_page/ActionProductPage";
+import ChatLoginPage from './pages/chat_room/ChatLoginPage';
 
 const routes = [
 	{
@@ -19,17 +19,22 @@ const routes = [
 	{
 		path: '/product/add',
 		exact: true,
-		main: () => <AddProductPage />
+		main: ({history}) => <ActionProductPage history={history}/>
 	},
 	{
 		path: '/product/:id/update',
 		exact: true,
-		main: () => <UpdateProductPage />
+		main: ({match, history}) => <ActionProductPage match={match} history={history}/>
 	},
 	{
 		path: '/product-list',
 		exact: true,
 		main: () => <ProductListPage />
+	},
+	{
+		path: '/chat-room',
+		exact: true,
+		main: () => <ChatLoginPage />
 	},
 	{
 		path: '',

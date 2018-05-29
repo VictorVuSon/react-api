@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import products from './products';
-import { reducer as formReducer } from 'redux-form'
+import itemEditing from './itemEditing'
 
 const appReducers = combineReducers({
 	products,
-	form: formReducer
+	itemEditing
 });
 
 export default appReducers;

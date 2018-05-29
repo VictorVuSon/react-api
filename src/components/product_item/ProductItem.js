@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class ProductItem extends Component {
 	render() {
@@ -14,7 +15,9 @@ class ProductItem extends Component {
 				</td>
 				<td>
 					<button type="button" className="btn btn-success btn-update-product">
-						Update
+						<Link to={`/product/${productItem.id}/update`}>
+							Update
+						</Link>
 					</button>
 					<button type="button" className="btn btn-danger" onClick={ () => this.deleteProduct(productItem.id) }>Delete</button>
 				</td>
@@ -23,7 +26,7 @@ class ProductItem extends Component {
 	}
 
 	deleteProduct = (id) => {
-		if (confirm('Bạn chắc chắn muốn xóa ?')) { //eslint-disable-line
+		if (confirm('Are you sure ?')) { //eslint-disable-line
 			this.props.onDelete(id);
 		}
 	};

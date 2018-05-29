@@ -6,7 +6,7 @@ const products = (state = initialState, action) => {
 
 	switch (action.type) {
 		case Types.FETCH_PRODUCTS:
-			return [...state, ...action.products];
+			return [...action.products];
 		case Types.DELETE_PRODUCT:
 			const id = action.id;
 			const index = getIndex(id, state);
@@ -14,6 +14,16 @@ const products = (state = initialState, action) => {
 				state.splice(index, 1);
 			}
 			return [...state];
+		case Types.ADD_PRODUCT:
+			return [...state, action.product];
+
+		case Types.UPDATE_PRODUCT:
+			const updatedProductIndex = getIndex(action.product.id, state);
+			if (updatedProductIndex !== -1) {
+				state[updatedProductIndex] = action.product;
+			}
+			return [...state];
+
 		default: return [...state];
 
 	}

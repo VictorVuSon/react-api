@@ -11,6 +11,10 @@ const menus = [
 		name: 'Dashboard',
 		to: '/product-list',
 		exact: false
+	},
+	{
+		name: 'Chat room',
+		to: '/chat-room'
 	}
 ];
 
