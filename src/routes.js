@@ -4,6 +4,7 @@ import NotFound from "./pages/not_found_page/NotFound";
 import ProductListPage from "./pages/product_list_page/ProductListPage";
 import ActionProductPage from "./pages/product_action_page/ActionProductPage";
 import ChatLoginPage from './pages/chat_room/ChatLoginPage';
+import ForgotPasswordPage from "./pages/chat_room/ForgotPasswordPage";
 
 const routes = [
 	{
@@ -35,6 +36,11 @@ const routes = [
 		path: '/chat-room',
 		exact: true,
 		main: () => <ChatLoginPage />
+	},
+	{
+		path: '/forgot-password',
+		exact: true,
+		main: () => <ForgotPasswordPage />
 	},
 	{
 		path: '',

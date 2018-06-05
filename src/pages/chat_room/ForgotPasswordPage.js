@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {requestLogin} from '../../actions/login';
 
 const styles = {
 	backgroundColor: '#f1f1f1',
 };
 
-class ChatLoginPage extends Component {
+class ForgotPasswordPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: '',
 			password: '',
-			isRemember: false
+			isRemember: ''
 		};
 	}
 
@@ -69,14 +68,6 @@ class ChatLoginPage extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onLogin}>
-					<div className="imgcontainer">
-						<img
-							src="https://www.w3schools.com/howto/img_avatar2.png"
-							alt="Avatar"
-							className="avatar"
-						/>
-					</div>
-
 					<div className="container">
 						<label>
 							<b>Username</b>
@@ -87,28 +78,13 @@ class ChatLoginPage extends Component {
 							name="username"
 							required onChange={this.onChange}
 						/>
-						<label>
-							<b>Password</b>
-						</label>
-						<input
-							type="password"
-							placeholder="Enter Password"
-							name="password"
-							required
-							onChange={this.onChange}
-						/>
-						<button type="submit">Login</button>
-						<label>
-							<input
-								type="checkbox"
-					            name="isRemember"
-								onChange={this.onChange}
-							/> Remember me
-						</label>
+						<button type="submit">Submit</button>
 					</div>
 					<div className="container" style={styles}>
 						<button type="button" className="cancelbtn">Cancel</button>
-						<span className="psw">Forgot <Link to={'/forgot-password'}>password?</Link></span>
+						<span className="psw">
+							<Link to={'/chat-room'}>Login</Link>
+						</span>
 					</div>
 				</form>
 			</div>
@@ -124,11 +100,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, props) => {
 	return {
-		onLogin : (data) => {
-			dispatch(requestLogin(data));
-		}
+		// onLogin : (data) => {
+		// 	dispatch(requestLogin(data));
+		// }
 
 	}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatLoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordPage);
+
+
+
