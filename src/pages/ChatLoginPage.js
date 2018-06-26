@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
 
 const styles = {
 	backgroundColor: '#f1f1f1',
 };
 
-class ForgotPasswordPage extends Component {
+class ChatLoginPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: '',
 			password: '',
-			isRemember: ''
+			isRemember: false
 		};
 	}
 
@@ -68,6 +67,14 @@ class ForgotPasswordPage extends Component {
 		return (
 			<div>
 				<form onSubmit={this.onLogin}>
+					<div className="imgcontainer">
+						<img
+							src="https://www.w3schools.com/howto/img_avatar2.png"
+							alt="Avatar"
+							className="avatar"
+						/>
+					</div>
+
 					<div className="container">
 						<label>
 							<b>Username</b>
@@ -78,13 +85,28 @@ class ForgotPasswordPage extends Component {
 							name="username"
 							required onChange={this.onChange}
 						/>
-						<button type="submit">Submit</button>
+						<label>
+							<b>Password</b>
+						</label>
+						<input
+							type="password"
+							placeholder="Enter Password"
+							name="password"
+							required
+							onChange={this.onChange}
+						/>
+						<button type="submit">Login</button>
+						<label>
+							<input
+								type="checkbox"
+					            name="isRemember"
+								onChange={this.onChange}
+							/> Remember me
+						</label>
 					</div>
 					<div className="container" style={styles}>
 						<button type="button" className="cancelbtn">Cancel</button>
-						<span className="psw">
-							<Link to={'/chat-room'}>Login</Link>
-						</span>
+						<span className="psw">Forgot <Link to={'/forgot-password'}>password?</Link></span>
 					</div>
 				</form>
 			</div>
@@ -92,22 +114,4 @@ class ForgotPasswordPage extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-
-	}
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-	return {
-		// onLogin : (data) => {
-		// 	dispatch(requestLogin(data));
-		// }
-
-	}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotPasswordPage);
-
-
-
+export default ChatLoginPage;

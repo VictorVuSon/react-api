@@ -1,10 +1,10 @@
 import React from 'react';
-import HomePage from "./pages/home_page/HomePage";
-import NotFound from "./pages/not_found_page/NotFound";
-import ProductListPage from "./pages/product_list_page/ProductListPage";
-import ActionProductPage from "./pages/product_action_page/ActionProductPage";
-import ChatLoginPage from './pages/chat_room/ChatLoginPage';
-import ForgotPasswordPage from "./pages/chat_room/ForgotPasswordPage";
+import HomePage from './pages/HomePage';
+import NotFound from './pages/NotFound';
+import ProductListPage from './containers/ProductListContainer';
+import ActionProductPage from './containers/ProductActionContainer';
+import ChatLoginPage from './pages/ChatLoginPage';
+import ForgotPasswordPage from './pages/ForgotPasswordPage';
 
 const routes = [
 	{

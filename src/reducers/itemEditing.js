@@ -1,11 +1,11 @@
-import * as Types from './../constants/action-types';
+import { ACTIONS } from '../actions';
 
 let initialState = {};
 
 const itemEditing = (state = initialState, action) => {
     switch(action.type) {
-        case Types.EDIT_PRODUCT:
-            return action.product;
+        case ACTIONS.PRODUCT.EDIT_PRODUCT:
+            return {...action.payload.body.data};
         default:
             return state;
     }

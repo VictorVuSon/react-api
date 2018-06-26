@@ -1,26 +1,29 @@
-import * as Types from './../constants/action-types';
+import { ACTIONS } from '../actions';
 
 const initialState = [];
 
 const products = (state = initialState, action) => {
-
 	switch (action.type) {
-		case Types.FETCH_PRODUCTS:
-			return [...action.products];
-		case Types.DELETE_PRODUCT:
+		case ACTIONS.PRODUCT.FETCH_PRODUCTS:
+			return [...action.payload.body.data];
+		case ACTIONS.PRODUCT.DELETE_PRODUCT:
 			const id = action.id;
 			const index = getIndex(id, state);
 			if (index !== -1) {
 				state.splice(index, 1);
 			}
 			return [...state];
-		case Types.ADD_PRODUCT:
-			return [...state, action.product];
+		case ACTIONS.PRODUCT.ADD_PRODUCT:
+			if (action.error) {
+				alert(action.error);
+				return [...state]
+			}
+			return [...state, action.payload.data];
 
-		case Types.UPDATE_PRODUCT:
-			const updatedProductIndex = getIndex(action.product.id, state);
+		case ACTIONS.PRODUCT.UPDATE_PRODUCT:
+			const updatedProductIndex = getIndex(action.payload.body.data.id, state);
 			if (updatedProductIndex !== -1) {
-				state[updatedProductIndex] = action.product;
+				state[updatedProductIndex] = action.payload.body.data;
 			}
 			return [...state];
 

@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import {actAddProductRequest, actGetProductRequest, actUpdateProductRequest} from "../../actions/index";
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 class AddProductPage extends Component {
@@ -57,6 +55,7 @@ class AddProductPage extends Component {
 		if (id) {
 			this.props.onUpdateProduct(product);
 		} else {
+			delete product.id;
 			this.props.onAddProduct(product);
 		}
 		history.goBack();
@@ -111,27 +110,6 @@ class AddProductPage extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		itemEditing: state.itemEditing
-	}
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-	return {
-		onAddProduct : (data) => {
-			dispatch(actAddProductRequest(data));
-		},
-		onEditProduct : (id) => {
-			dispatch(actGetProductRequest(id));
-		},
-		onUpdateProduct: (product) => {
-			dispatch(actUpdateProductRequest(product))
-		}
-
-	}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddProductPage);
+export default AddProductPage;
 
 

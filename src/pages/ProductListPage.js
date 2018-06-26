@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import ProductList from './../../components/product_list/ProductList';
-import ProductItem from './../../components/product_item/ProductItem';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import {actDeleteProductRequest, actFetchProductsRequest} from "../../actions/index";
+import React, {Component} from 'react';
+import ProductList from './../components/product_list/ProductList';
+import ProductItem from './../components/product_item/ProductItem';
+import {Link} from 'react-router-dom';
 
 class ProductListPage extends Component {
 	render() {
@@ -51,22 +49,4 @@ class ProductListPage extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		products: state.products
-	}
-};
-
-const mapDispatchToProps = (dispatch, props) => {
-	return {
-		fetchAllProducts : () => {
-			dispatch(actFetchProductsRequest());
-		},
-		onDeleteProduct: (id) => {
-			dispatch(actDeleteProductRequest(id))
-		}
-	}
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductListPage);
-
+export default ProductListPage;
