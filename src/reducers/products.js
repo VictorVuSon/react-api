@@ -5,25 +5,21 @@ const initialState = [];
 const products = (state = initialState, action) => {
 	switch (action.type) {
 		case ACTIONS.PRODUCT.FETCH_PRODUCTS:
-			return [...action.payload.body.data];
+			return [...action.payload];
 		case ACTIONS.PRODUCT.DELETE_PRODUCT:
-			const id = action.id;
+			const id = action.payload.id;
 			const index = getIndex(id, state);
 			if (index !== -1) {
 				state.splice(index, 1);
 			}
 			return [...state];
 		case ACTIONS.PRODUCT.ADD_PRODUCT:
-			if (action.error) {
-				alert(action.error);
-				return [...state]
-			}
-			return [...state, action.payload.data];
+			return state;
 
 		case ACTIONS.PRODUCT.UPDATE_PRODUCT:
-			const updatedProductIndex = getIndex(action.payload.body.data.id, state);
+			const updatedProductIndex = getIndex(action.payload.id, state);
 			if (updatedProductIndex !== -1) {
-				state[updatedProductIndex] = action.payload.body.data;
+				state[updatedProductIndex] = action.payload;
 			}
 			return [...state];
 

@@ -11,7 +11,10 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		onDeleteProduct: (id) => {
 			return dispatch({ type: ACTIONS.PRODUCT.DELETE_PRODUCT, payload: Agent.request('DELETE', API_URL + `/${id}`) });
-		}
+		},
+        onClearAlert: () => {
+            return dispatch({ type: ACTIONS.COMMON.CLEAR_ALERT });
+        }
 	}
 };
 

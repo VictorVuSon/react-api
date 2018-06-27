@@ -40,7 +40,7 @@ export default class AgentRequest {
 	};
     static delete = (url) => {
 	    return superagent
-		    .delete(`${url}`)
+		    .del(`${url}`)
 		    .use(AgentRequest.setRequestMiddleware)
 		    .then(res => res);
     }

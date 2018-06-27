@@ -2,7 +2,7 @@ import ProductActionPage from '../pages/ProductActionPage';
 import {connect} from 'react-redux';
 import Agent from '../utils/Agent.js';
 import {ACTIONS} from '../actions';
-import { API_URL } from '../env.json';
+import {API_URL} from '../env.json';
 
 const mapDispatchToProps = (dispatch) => {
 	return {
@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = state => {
 	return {
-		itemEditing: state.itemEditing
+		itemEditing: state.itemEditing,
 	}
 };
 

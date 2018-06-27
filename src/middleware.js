@@ -12,23 +12,17 @@ const promiseMiddleware = store => next => action => {
                 //     return
                 // }
                 // console.log('RESULT', res);
-                action.payload = res;
+                action.payload = res.body.data;
                 // store.dispatch({ type: COMMON.ASYNC_END, promise: action.payload });
                 store.dispatch(action);
             },
             error => {
-                // const currentState = store.getState();
-                action.error = true;
-                action.payload = error.response ? error.response.body : error.response;
-                // if (!action.skipTracking) {
-                //     store.dispatch({ type: COMMON.ASYNC_END, promise: action.payload });
-                // }
+                action.error = error.response ? error.response.body : error.response;
                 store.dispatch(action);
             }
         );
         return;
     }
-
     next(action);
 };
 

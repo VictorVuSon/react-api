@@ -4,6 +4,12 @@ import ProductItem from './../components/product_item/ProductItem';
 import {Link} from 'react-router-dom';
 
 class ProductListPage extends Component {
+
+	// compnentWillUnmount() {
+	// 	alert('unmount');
+	// 	this.props.onClearAlert();
+	// }
+
 	render() {
 		let { products } = this.props;
 		return (
